@@ -1,0 +1,39 @@
+//using binary search
+
+int count(int arr[], int n, int x) {
+	    // code here
+	    int low = 0;
+        int high = n - 1;
+        int cnt = 0;
+        
+        while (low <= high) {
+            int mid = low + (high - low) / 2;
+            
+            if (arr[mid] == x) {
+                cnt++;
+                
+                // Check the left side of mid for more occurrences
+                int left = mid - 1;
+                while (left >= 0 && arr[left] == x) {
+                    cnt++;
+                    left--;
+                }
+                
+                // Check the right side of mid for more occurrences
+                int right = mid + 1;
+                while (right < n && arr[right] == x) {
+                    cnt++;
+                    right++;
+                }
+                
+                return cnt;
+            }
+            else if (arr[mid] > x) {
+                high = mid - 1;
+            }
+            else {
+                low = mid + 1;
+            }
+        }
+        
+        return cnt;
