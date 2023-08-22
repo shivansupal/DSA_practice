@@ -1,0 +1,33 @@
+class Solution{
+public:
+    int getNthFromLast(Node *head, int n)
+    {
+           Node* fast=head;
+           Node* slow=head;
+           
+           int count=1;
+           while(fast->next!=NULL){
+               
+               fast=fast->next;
+               count++;
+           }
+           
+           int ans=count-n+1;
+           int count1=1;
+           
+           while(slow!=NULL){
+               
+               if(count1==ans){
+                   
+                   return slow->data;
+               }
+               slow=slow->next;
+               count1++;
+               
+           }
+           
+           return -1;
+           
+           
+    }
+};
