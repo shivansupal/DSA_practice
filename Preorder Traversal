@@ -1,0 +1,11 @@
+vector <int> preorder(Node* root)
+{
+   vector<int> ans;
+  if(root != NULL){
+      ans.push_back(root->data);
+      vector<int> leftsubtree = preorder(root->left);
+      ans.insert(ans.end(), leftsubtree.begin(), leftsubtree.end());
+      vector<int> rightsubtree = preorder(root->right);
+      ans.insert(ans.end(), rightsubtree.begin(), rightsubtree.end());
+  }
+  return ans;
