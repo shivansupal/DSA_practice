@@ -1,0 +1,22 @@
+lic:
+    int findMissing(int arr[], int n) {
+        // code here
+        int start = 0 ;
+        int end = 1 ;
+
+           int key = ((arr[n-1] - arr[0]) / (n));
+           
+            while(end<n)
+            {
+            if(arr[end] - arr[start] == key)
+            {
+            start = start+1;
+            end = start+1;
+            }
+            
+            else{
+            return arr[start] + key;
+            }
+            
+            }
+    }
