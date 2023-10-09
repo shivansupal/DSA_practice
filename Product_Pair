@@ -1,0 +1,18 @@
+unordered_map<long long, int> mp;
+    int zeroCount = 0;
+
+    for (int i = 0; i < n; i++) {
+        if (arr[i] == 0) {
+            zeroCount++;
+            if (x == 0 && zeroCount > 1) {
+                return true;
+            }
+            continue;
+        }
+        if (x % arr[i] == 0 && mp.find(x / arr[i]) != mp.end()) {
+            return true;
+        }
+        mp[arr[i]]++;
+    }
+
+    return false;
